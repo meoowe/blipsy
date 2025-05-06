@@ -77,9 +77,9 @@ def blipsy_pomodoro(
 
     console.print("""
 🎉 ,_/\\____/\\_,
-🎉( ^   o  ^ )
+🎉( ^   o   ^  )
 🎉| PARTY TIME |
-🎉 \\__^___^__/
+🎉 \\__n___n__/
 """ if not no_art else "", style="bold magenta")
     console.print("\n✅ All cycles complete! Take a victory nap 💤", style="bold green")
 
