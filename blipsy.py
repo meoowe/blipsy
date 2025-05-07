@@ -1,5 +1,4 @@
 from time import sleep, time
-from turtle import st
 from rich.progress import Progress, TextColumn, BarColumn, TimeRemainingColumn
 from rich.console import Console
 from rich.live import Live
