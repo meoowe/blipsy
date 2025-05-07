@@ -1,6 +1,6 @@
 # 🐾 Blipsy — A Pomodoro Timer That Stares Into Your Soul
 
-**Blipsy** is a minimalist, terminal-based Pomodoro timer with an animated ASCII cat who silently judges your every move.  
+**Blipsy** is a terminal-based Pomodoro timer with an animated ASCII cat who silently judges your every move.  
 Because staring into a void cat's eyes makes you more productive.
 
 ## ✨ Features
@@ -72,4 +72,3 @@ python blipsy.py run --no-art
 
 If Blipsy helped you do literally anything — drop a ⭐ on the repo.  
 Or tell a friend. Or post a screenshot.  
-That’s basically currency now.
