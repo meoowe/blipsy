@@ -11,6 +11,7 @@ Because staring into a void cat's eyes makes you more productive.
 - 🧘 Quiet mode for terminal monks (`--no-art`)
 - 🔔 Bell when time’s up
 - 📊 Progress bar using [rich](https://github.com/Textualize/rich) to answer “how much longer?”
+- ⏯ Pausing functionality
 
 ## 📥 Installation
 
@@ -23,7 +24,7 @@ git clone https://github.com/meoowe/blipsy
 cd blipsy
 
 # Install dependencies
-pip install rich typer
+pip install rich typer keyboard
 
 # Run it
 python blipsy.py run
@@ -66,6 +67,12 @@ python blipsy.py demo
 
 ```bash
 python blipsy.py run --no-art
+```
+### Pause Shortcut
+By default, the Shortcut to pause is <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd>.
+It can be changed with the option `--pause-hotkey`.
+```bash
+python blipsy.py run --pause-hotkey alt+a
 ```
 
 ## 🌟 Like it?
