@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "blipsy"
+version = "0.1.7"
+description = "A terminal-based Pomodoro timer with an animated ASCII cat."
+authors = ["meoowe <meoowe990@gmail.com>"]
+license = "UNLICENSE"
+readme = "readme.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+rich = "^13.0.0"
+typer = "^0.9.0"
+keyboard = "^0.13.5"
+
+[tool.poetry.scripts]
+blipsy = "blipsy:typerapp"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

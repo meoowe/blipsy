@@ -15,9 +15,9 @@ Because staring into a void cat's eyes makes you more productive.
 
 ## 📥 Installation
 
-> _If someone knows how to do this **properly**, please tell me._  
-Until then:
-
+_There are now 2 ways to run this project - one uses the `poetry` to install dependencies._
+> Note: The first method requires you to be in the same directory as the `blipsy.py` file.
+### Method 1 (manual)
 ```bash
 # Clone the repo
 git clone https://github.com/meoowe/blipsy
@@ -30,6 +30,13 @@ pip install rich typer keyboard
 python blipsy.py run
 ```
 
+### Method 2 (`poetry`)
+```bash
+git clone https://github.com/yourusername/blipsy.git # Clone repo
+cd blipsy
+poetry sync # Install dependencies
+blipsy run # You can run this from anywhere!
+```
 ## 🧪 Usage
 
 Blipsy uses [Typer](https://typer.tiangolo.com), so it comes with built-in help:
