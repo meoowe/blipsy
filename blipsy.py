@@ -44,18 +44,16 @@ def run_timer(label: str, seconds: int, no_art: bool, pause_hotkey: str):
     )
     task = progress.add_task("timer", total=seconds)
 
-    with Live(console=console, refresh_per_second=10, transient=True) as live: # Uses rich.live to prevent flash on each clear
+    with Live(console=console, refresh_per_second=2, transient=True) as live: # Uses rich.live to prevent flash on each clear
         while time() < end:
             if not paused:
                 elapsed = time() - start
                 progress.update(task, completed=elapsed)
-                table = Table(show_header=False, box=None) # Live just prefers tables. (If it works, it works)
-                if not no_art: table.add_row(character_frames[1] if flip else character_frames[0]) 
-                table.add_row(progress.get_renderable())
-                live.update(table)
+
+                live.update(make_timer_table(progress, flip, no_art))
                 flip = not flip
                 sleep(0.5)
-            if paused:
+            else:
                 live.update(
                     Text().append("The timer is paused. ", style="yellow")
                     .append("Press ", style="yellow")
@@ -69,6 +67,12 @@ def toggle_pause():
     global paused
     paused = not paused
 
+def make_timer_table(progress, flip: bool, no_art: bool) -> Table:
+    table = Table(show_header=False, box=None)
+    if not no_art:
+        table.add_row(character_frames[1] if flip else character_frames[0])
+    table.add_row(progress.get_renderable())
+    return table
 
 def blipsy_pomodoro(
     pause_hotkey: str,
@@ -84,7 +88,7 @@ def blipsy_pomodoro(
     for cycle in range(1, cycles + 1):
         run_timer(f"{focus_message} (Cycle {cycle}/{cycles})", focus_duration, no_art, pause_hotkey)
 
-        if cycle < cycles:
+        if cycle != cycles:
             run_timer(short_break_message, short_break, no_art, pause_hotkey)
         else:
             run_timer(long_break_message, long_break, no_art, pause_hotkey)
