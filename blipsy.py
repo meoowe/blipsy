@@ -7,6 +7,7 @@ from rich.text import Text
 import typer
 import keyboard
 
+# Pause control variables
 paused: bool = False
 current_pause_duration: float = 0.0
 
@@ -14,27 +15,22 @@ console = Console() # Use Rich's pretty printing and terminal bell
 typerapp = typer.Typer() # For commands such as 'blipsy run'
 
 # Character Definitions
-blipsy_left = """
+character_frames: list[str] = [
+    """
  ,_/\\____/\\_,
 ( o      o  )
 | -  ^  -   |          
  \\_||___||_/ 
    ||   ||    
-"""
-
-blipsy_right = """ 
+""",
+""" 
  ,_/\\____/\\_,
 (   o     o )
 |  -  ^  -  |
  \\_||___||_/
    ||   ||  
 """
-
-def format_time(seconds: int) -> str:
-    hours = seconds // 3600
-    minutes = (seconds % 3600) // 60
-    secs = seconds % 60
-    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+]
 
 def run_timer(label: str, seconds: int, no_art: bool, pause_hotkey: str):
     start = time()
@@ -54,7 +50,7 @@ def run_timer(label: str, seconds: int, no_art: bool, pause_hotkey: str):
                 elapsed = time() - start
                 progress.update(task, completed=elapsed)
                 table = Table(show_header=False, box=None) # Live just prefers tables. (If it works, it works)
-                if not no_art: table.add_row(blipsy_left if flip else blipsy_right) 
+                if not no_art: table.add_row(character_frames[1] if flip else character_frames[0]) 
                 table.add_row(progress.get_renderable())
                 live.update(table)
                 flip = not flip
