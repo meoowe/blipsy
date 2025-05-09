@@ -16,7 +16,7 @@ Because staring into a void cat's eyes makes you more productive.
 ## 📥 Installation
 
 _There are now 2 ways to run this project - one uses the `poetry` to install dependencies._
-> Note: The first method requires you to be in the same directory as the `blipsy.py` file.
+> Note: The first method requires you to be in the same directory as the `blipsy.py` file every time you run the program.
 ### Method 1 (manual)
 ```bash
 # Clone the repo
