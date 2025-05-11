@@ -32,7 +32,7 @@ python blipsy.py run
 
 ### Method 2 (`poetry`)
 ```bash
-git clone https://github.com/yourusername/blipsy.git # Clone repo
+git clone https://github.com/meoowe/blipsy.git # Clone repo
 cd blipsy
 poetry sync # Install dependencies
 blipsy run # You can run this from anywhere!
