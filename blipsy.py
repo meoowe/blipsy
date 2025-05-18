@@ -146,8 +146,8 @@ def run(
     short_break_secs: int = 300, 
     long_break_secs: int = 900, 
     focus_message: str = random.choice(focus_messages),
-    short_break_message: str = random.choice(focus_messages),
-    long_break_message: str = random.choice(focus_messages),
+    short_break_message: str = random.choice(short_break_messages),
+    long_break_message: str = random.choice(long_break_messages),
     art: bool = True,
     pause_hotkey: str = "ctrl+shift+p"
 ):
