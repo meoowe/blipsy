@@ -6,7 +6,7 @@ from rich.table import Table
 from rich.text import Text
 import typer
 import keyboard
-
+import random
 # Pause control variables
 paused: bool = False
 current_pause_duration: float = 0.0
@@ -30,6 +30,44 @@ character_frames: list[str] = [
  \\_||___||_/
    ||   ||  
 """
+]
+focus_messages: list[str] = [
+    "Focus Time",
+    "Time to Lock In",
+    "Deep Work Mode",
+    "Let’s Get Productive",
+    "Heads Down Time",
+    "Zone In",
+    "Stay Sharp",
+    "Work Sprint Starts Now",
+    "Dial Into Focus",
+    "Brainpower Activated"
+]
+
+short_break_messages: list[str] = [
+    "Go Relax",
+    "Take a Breather",
+    "Stretch Time",
+    "Quick Break Time",
+    "Chill for a Bit",
+    "Rest Your Eyes",
+    "Grab Some Water",
+    "Mini Recharge",
+    "Short Pause",
+    "Ease Off for a Moment"
+]
+
+long_break_messages: list[str] = [
+    "Have a Nice Break",
+    "Enjoy Some Time Off",
+    "Take a Well-Earned Rest",
+    "Kick Back and Relax",
+    "Unwind for a While",
+    "Time to Recharge Fully",
+    "Break Like You Mean It",
+    "Go Take a Real Rest",
+    "Chill Mode: ON",
+    "Full Pause Activated"
 ]
 
 def run_timer(label: str, seconds: int, no_art: bool, pause_hotkey: str):
@@ -67,7 +105,7 @@ def toggle_pause():
     global paused
     paused = not paused
 
-def make_timer_table(progress, flip: bool, no_art: bool) -> Table:
+def make_timer_table(progress: Progress, flip: bool, no_art: bool) -> Table:
     table = Table(show_header=False, box=None)
     if not no_art:
         table.add_row(character_frames[1] if flip else character_frames[0])
@@ -103,13 +141,13 @@ def blipsy_pomodoro(
 
 @typerapp.command()
 def run(
-    cycles: int = 4, 
+    cycles: int = 4,
     focus_secs: int = 1500, 
     short_break_secs: int = 300, 
     long_break_secs: int = 900, 
-    focus_message: str = "Focus Time",
-    short_break_message: str = "Go Relax",
-    long_break_message: str = "Have a nice break",
+    focus_message: str = random.choice(focus_messages),
+    short_break_message: str = random.choice(focus_messages),
+    long_break_message: str = random.choice(focus_messages),
     art: bool = True,
     pause_hotkey: str = "ctrl+shift+p"
 ):
